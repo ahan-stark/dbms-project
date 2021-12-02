@@ -34,7 +34,12 @@ def dis_rooms():
         print(rooms)
     return render_template('dis_room.html',disprooms=rooms)
 
-@app.route('/book/<num>')
+@app.route('/book/<num>', methods=['GET','POST'])
 def book(num):
     # logic to insert booking details to booking table
-    
+    query = ("insert into book values({})".format(num))
+    cursor.execute(query)
+    cnx.commit()
+    return render_template('success.html')
+
+
