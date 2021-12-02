@@ -2,8 +2,24 @@
 <h1 class="dis-room">
   <h1>Room_id------Room_cost</h1>
 
-  {% for dis in disprooms %}
-  <li>{{dis}}</li>
-  {% endfor %}
+  
+  <table class="table">
+    <tr>
+      <th>Room no</th>
+      <th>Room cost</th>
+    </tr>
+    {% for dis in disprooms %}
+    <tr>
+      <td>{{dis.num}}</td>
+      <td>{{dis.cost}}</td>
+      <td>
+        <a href="/book/{{dis.num}}">book</a>
+
+        </td>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  
 </h1>
 {% endblock %}

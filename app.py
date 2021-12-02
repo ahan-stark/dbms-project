@@ -26,7 +26,15 @@ def dis_rooms():
     query=("SELECT room_no,room_cost FROM rooms ")
     cursor.execute(query)
     for (room_no,room_cost) in cursor:
-        rooms.append('{} {}'.format(room_no,room_cost))
-        return render_template('dis_room.html',disprooms=rooms)
+        room = {
+            'num': room_no,
+            'cost': room_cost
+        }
+        rooms.append(room)
+        print(rooms)
+    return render_template('dis_room.html',disprooms=rooms)
 
-
+@app.route('/book/<num>')
+def book(num):
+    # logic to insert booking details to booking table
+    
