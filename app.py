@@ -41,5 +41,16 @@ def book(num):
     cursor.execute(query)
     cnx.commit()
     return render_template('success.html')
-
-
+@app.route('/book/available')
+def check_available():
+    rooms=[]
+    query=("select room_no,room_cost from rooms where room_no NOT IN (select * from book);")
+    cursor.execute(query)
+    for (room_no,room_cost) in cursor:
+        room = {
+            'num': room_no,
+            'cost': room_cost
+        }
+        rooms.append(room)
+        print(rooms)
+    return render_template('dis_room.html',disprooms=rooms)
