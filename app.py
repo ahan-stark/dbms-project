@@ -12,7 +12,7 @@ app = Flask(__name__)
 def save_rooms():
     room_id = request.form.get("room_id")
     cost_room = request.form.get("cost_room")
-    query = "insert into rooms values({}, {})".format(room_id, cost_room)
+    query = "INSERT INTO rooms VALUES({}, {})".format(room_id, cost_room)
     cursor.execute(query)
     cnx.commit()
     return redirect(url_for("get_rooms"))
@@ -38,7 +38,20 @@ def dis_rooms():
 @app.route("/book/<num>", methods=["GET", "POST"])
 def book(num):
     # logic to insert booking details to booking table
-    query = "insert into book values({})".format(num)
+    # query = "insert into book values({})".format(num)
+    # cursor.execute(query)
+    # cnx.commit()
+    return render_template("add_name.html", id=num)
+
+
+@app.route("/add_name", methods=["POST"])
+def booking():
+    # logic to insert booking details to booking table
+    cust_id = request.form.get('cust_id')
+    cust_name = request.form.get('cust_name')
+    book_date = request.form.get('add_date')
+    query = "INSERT INTO book VALUES({},'{}','{}')".format(
+        cust_id, cust_name, book_date)
     cursor.execute(query)
     cnx.commit()
     return render_template("success.html")
@@ -48,20 +61,19 @@ def book(num):
 def check_available():
     rooms = []
     query = (
-        "select room_no,room_cost from rooms where room_no NOT IN (select * from book);"
+        "SELECT room_no,room_cost from rooms WHERE room_no NOT IN (SELECT booked_room FROM book);"
     )
     cursor.execute(query)
     for (room_no, room_cost) in cursor:
         room = {"num": room_no, "cost": room_cost}
         rooms.append(room)
-        print(rooms)
     return render_template("dis_room.html", disprooms=rooms)
 
 
 @app.route("/sort")
 def sorr_rooms():
     rooms = []
-    query = "select room_no,room_cost from rooms order by room_cost;"
+    query = "SELECT room_no,room_cost FROM rooms ORDER BY room_cost;"
     cursor.execute(query)
     for (room_no, room_cost) in cursor:
         room = {"num": room_no, "cost": room_cost}
