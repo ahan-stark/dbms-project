@@ -79,3 +79,8 @@ def sorr_rooms():
         room = {"num": room_no, "cost": room_cost}
         rooms.append(room)
     return render_template("dis_room.html", disprooms=rooms)
+
+
+@app.route('/')
+def start_page():
+    return render_template("welcome.html")
