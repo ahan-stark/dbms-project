@@ -84,3 +84,20 @@ def sorr_rooms():
 @app.route('/')
 def start_page():
     return render_template("welcome.html")
+
+
+@app.route('/inpdate')
+def inpdate():
+    return render_template("input-date.html")
+
+
+@app.route('/getdate',methods=["POST"])
+def get_date():
+    particulardate = request.form.get('chosendate')
+    query = "select *  from rooms where room_no not in (select booked_room from book where booked_date='{}');".format(particulardate)
+    cursor.execute(query)
+    dis=[]
+    for (booked_room,cust_name) in cursor:
+        room = {"num":booked_room , "cost":cust_name }
+        dis.append(room)
+    return render_template("dis_room.html", disprooms=dis)
