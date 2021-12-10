@@ -89,4 +89,3 @@ def get_date():
         room = {"num": booked_room, "cost": cust_name}
         dis.append(room)
     return render_template("dis_room.html", disprooms=dis)
-
