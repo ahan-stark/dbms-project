@@ -81,7 +81,7 @@ def inpdate():
 @app.route('/getdate', methods=["POST"])
 def get_date():
     particulardate = request.form.get('chosendate')
-    query = "select *  from rooms where room_no not in (select booked_room from book where booked_date='{}');".format(
+    query = "SELECT *  FROM rooms WHERE room_no NOT IN (SELECT booked_room FROM book WHERE booked_date='{}');".format(
         particulardate)
     cursor.execute(query)
     dis = []
@@ -89,3 +89,20 @@ def get_date():
         room = {"num": booked_room, "cost": cust_name}
         dis.append(room)
     return render_template("dis_room.html", disprooms=dis)
+
+
+@app.route("/takefood")
+def dis_food():
+    return render_template("ins_food.html")
+
+
+@app.route("/ins_food", methods=['POST'])
+def ins_food():
+    food_id = request.form.get('food_id')
+    food_name = request.form.get('food_name')
+    food_time = request.form.get('food_time')
+    query = "INSERT INTO food VALUES ({},'{}','{}')".format(
+        food_id, food_name, food_time)
+    cursor.execute(query)
+    cnx.commit()
+    return render_template ("success.html")
