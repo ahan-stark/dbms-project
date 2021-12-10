@@ -57,19 +57,6 @@ def booking():
     return render_template("success.html")
 
 
-@app.route("/book/available")
-def check_available():
-    rooms = []
-    query = (
-        "SELECT room_no,room_cost from rooms WHERE room_no NOT IN (SELECT booked_room FROM book);"
-    )
-    cursor.execute(query)
-    for (room_no, room_cost) in cursor:
-        room = {"num": room_no, "cost": room_cost}
-        rooms.append(room)
-    return render_template("dis_room.html", disprooms=rooms)
-
-
 @app.route("/sort")
 def sorr_rooms():
     rooms = []
@@ -91,13 +78,15 @@ def inpdate():
     return render_template("input-date.html")
 
 
-@app.route('/getdate',methods=["POST"])
+@app.route('/getdate', methods=["POST"])
 def get_date():
     particulardate = request.form.get('chosendate')
-    query = "select *  from rooms where room_no not in (select booked_room from book where booked_date='{}');".format(particulardate)
+    query = "select *  from rooms where room_no not in (select booked_room from book where booked_date='{}');".format(
+        particulardate)
     cursor.execute(query)
-    dis=[]
-    for (booked_room,cust_name) in cursor:
-        room = {"num":booked_room , "cost":cust_name }
+    dis = []
+    for (booked_room, cust_name) in cursor:
+        room = {"num": booked_room, "cost": cust_name}
         dis.append(room)
     return render_template("dis_room.html", disprooms=dis)
+
