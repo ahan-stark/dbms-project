@@ -1,0 +1,17 @@
+{% block content %}
+<h1>Food Menu</h1>
+<table>
+  <tr>
+    <th>Food Id</th>
+    <th>Food Name</th>
+    <th>Food Timing</th>
+  </tr>
+  {% for food_details in foodmenu %}
+  <tr>
+    <td>{{food_details.id}}</td>
+    <td>{{food_details.name}}</td>
+    <td>{{food_details.timing}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

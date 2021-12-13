@@ -31,7 +31,7 @@ def dis_rooms():
     for (room_no, room_cost) in cursor:
         room = {"num": room_no, "cost": room_cost}
         rooms.append(room)
-        print(rooms)
+    print(rooms)
     return render_template("dis_room.html", disprooms=rooms)
 
 
@@ -58,7 +58,7 @@ def booking():
 
 
 @app.route("/sort")
-def sorr_rooms():
+def sort_rooms():
     rooms = []
     query = "SELECT room_no,room_cost FROM rooms ORDER BY room_cost;"
     cursor.execute(query)
@@ -105,4 +105,16 @@ def ins_food():
         food_id, food_name, food_time)
     cursor.execute(query)
     cnx.commit()
-    return render_template ("success.html")
+    return render_template("success.html")
+
+
+@app.route("/food_menu", methods=['GET'])
+def food_menu():
+    menu = []
+    query = "SELECT food_id,food_name,food_timing FROM food"
+    cursor.execute(query)
+    for(food_id, food_name, food_timing) in cursor:
+        food = {"id": food_id, "name": food_name, "timing": food_timing}
+        menu.append(food)
+    print(menu)
+    return render_template("dis_food.html", foodmenu=menu)
