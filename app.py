@@ -118,3 +118,22 @@ def food_menu():
         menu.append(food)
     print(menu)
     return render_template("dis_food.html", foodmenu=menu)
+
+
+@app.route("/book_food/<name>", methods=["GET", "POST"])
+def book_food(name):
+    return render_template("book_food.html", food_name=name)
+
+
+@app.route("/foodbook_details", methods=["POST"])
+def bookfood_details():
+    food_name = request.form.get("food_name")
+    customer_name = request.form.get("customer_name")
+    food_price = request.form.get("food_price")
+    quantity = request.form.get("quantity")
+    total_amount = request.form.get("total_amount")
+    query = "INSERT INTO food_book VALUES ('{}','{}',{},{},{})".format(
+        food_name, customer_name, food_price, quantity, total_amount)
+    cursor.execute(query)
+    cnx.commit()
+    return render_template("success.html")
