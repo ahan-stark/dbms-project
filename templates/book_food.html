@@ -10,11 +10,18 @@
     <form action="/foodbook_details" method="post">
       <input value="{{food_name}}" name="food_name" />
       <input type="text" name="customer_name" placeholder="customer name" />
-      <input type="number" name="food_price" placeholder="food price" />
-      <input type="number" name="quantity" placeholder="food quantity" />
-      <input type="submit" value="check total" id="" />
-      <input type="number" name="total_amount" />
+      <input value="{{food_cost}}" name="food_price" id="food-cost" />
+      <input
+        type="number"
+        value="1"
+        name="quantity"
+        placeholder="food quantity"
+        id="food-quantity"
+      />
+      <input type="button" value="check total" id="check-total" />
+      <input type="number" name="total_amount" id="total" />
       <input type="submit" value="book" id="" />
+      <script src="{{ url_for('static', filename='app.js')}}"</script></script>
     </form>
   </body>
 </html>
