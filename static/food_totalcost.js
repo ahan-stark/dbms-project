@@ -5,5 +5,5 @@ let total_cost=document.getElementById("total");
 btn.addEventListener("click", function (){
     let total=food_cost.value*food_quantity.value;
     total_cost.value=total;
-})
+});
 
