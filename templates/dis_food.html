@@ -1,12 +1,13 @@
 <title>Food menu</title>
 {% extends "welcome.html" %}{% block content %}
 <h1>Food Menu</h1>
-<table class="table">
+<table class="table table-success table-striped">
   <tr>
     <th>Food Id</th>
     <th>Food Name</th>
     <th>Food Timing</th>
     <th>Food Cost</th>
+    <th>Book Food</th>
   </tr>
   {% for food_details in foodmenu %}
   <tr>
