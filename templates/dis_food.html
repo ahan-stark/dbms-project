@@ -1,6 +1,7 @@
-{% block content %}
+<title>Food menu</title>
+{% extends "welcome.html" %}{% block content %}
 <h1>Food Menu</h1>
-<table>
+<table class="table">
   <tr>
     <th>Food Id</th>
     <th>Food Name</th>
@@ -13,7 +14,11 @@
     <td>{{food_details.name}}</td>
     <td>{{food_details.timing}}</td>
     <td>{{food_details.price}}</td>
-    <td><a href="/book_food/{{food_details.name}}/{{food_details.price}}">book_food</a></td>
+    <td>
+      <a href="/book_food/{{food_details.name}}/{{food_details.price}}"
+        >book_food</a
+      >
+    </td>
   </tr>
   {% endfor %}
 </table>

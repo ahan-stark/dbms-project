@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <form action="/add_name" method="post">
-      <input value="{{id}}" name="cust_id" />
-      <input type="text" name="cust_name" />
-      <input type="date" name="add_date" />
-      <input type="submit" value="book" id="" />
-    </form>
-  </body>
-</html>
+<title>Booking-Room</title>
+{% extends "welcome.html" %} {% block content %}
+<form action="/add_name" method="post">
+  <input value="{{id}}" name="cust_id" />
+  <input type="text" name="cust_name" />
+  <input type="date" name="add_date" />
+  <input type="submit" value="book" id="" />
+</form>
+{% endblock %}

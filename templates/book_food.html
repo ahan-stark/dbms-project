@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
+<title>Book-Food</title>
+{% extends "welcome.html" %}
+    {% block content %}
     <form action="/foodbook_details" method="post">
       <input value="{{food_name}}" name="food_name" />
       <input type="text" name="customer_name" placeholder="customer name" />
@@ -23,5 +17,5 @@
       <input type="submit" value="book" id="" />
       <script src="{{ url_for('static', filename='food_totalcost.js')}}"</script></script>
     </form>
-  </body>
-</html>
+    {% endblock %}
+
