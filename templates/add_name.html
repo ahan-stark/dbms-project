@@ -1,9 +1,16 @@
 <title>Booking-Room</title>
 {% extends "welcome.html" %} {% block content %}
-<form action="/add_name" method="post">
-  <input value="{{id}}" name="cust_id" />
-  <input type="text" name="cust_name" />
-  <input type="date" name="add_date" />
+<script src="{{ url_for('static', filename='exception-handling.js')}}"</script></script>
+<form
+  name="bookroom"
+  action="/add_name"
+  onsubmit="return validateForm()"
+  method="post"
+>
+  <input value="{{id}}" name="room_id" readonly />
+  <input type="number" name="cust_id" placeholder="aadhar number" />
+  <input type="text" name="cust_name" placeholder="name" />
+  <input type="date" name="add_date"/>
   <input type="submit" value="book" id="" />
 </form>
 {% endblock %}

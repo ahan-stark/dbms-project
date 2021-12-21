@@ -47,11 +47,13 @@ def book(num):
 @app.route("/add_name", methods=["POST"])
 def booking():
     # logic to insert booking details to booking table
+    room_id = request.form.get('room_id')
     cust_id = request.form.get('cust_id')
     cust_name = request.form.get('cust_name')
     book_date = request.form.get('add_date')
-    query = "INSERT INTO book VALUES({},'{}','{}')".format(
-        cust_id, cust_name, book_date)
+
+    query = "INSERT INTO book (booked_room,cust_id,cust_name,booked_date) VALUES({},'{}','{}','{}')".format(
+        room_id, cust_id, cust_name, book_date)
     cursor.execute(query)
     cnx.commit()
     return render_template("success.html")
@@ -101,9 +103,9 @@ def ins_food():
     food_id = request.form.get('food_id')
     food_name = request.form.get('food_name')
     food_time = request.form.get('food_time')
-    food_price=request.form.get('food_price')
+    food_price = request.form.get('food_price')
     query = "INSERT INTO food VALUES ({},'{}','{}',{})".format(
-        food_id, food_name, food_time,food_price)
+        food_id, food_name, food_time, food_price)
     cursor.execute(query)
     cnx.commit()
     return render_template("success.html")
@@ -114,16 +116,17 @@ def food_menu():
     menu = []
     query = "SELECT food_id,food_name,food_timing,food_price FROM food"
     cursor.execute(query)
-    for(food_id, food_name, food_timing,food_price) in cursor:
-        food = {"id": food_id, "name": food_name, "timing": food_timing,"price":food_price}
+    for(food_id, food_name, food_timing, food_price) in cursor:
+        food = {"id": food_id, "name": food_name,
+                "timing": food_timing, "price": food_price}
         menu.append(food)
     print(menu)
     return render_template("dis_food.html", foodmenu=menu)
 
 
 @app.route("/book_food/<name>/<cost>", methods=["GET", "POST"])
-def book_food(name,cost):
-    return render_template("book_food.html", food_name=name,food_cost=cost)
+def book_food(name, cost):
+    return render_template("book_food.html", food_name=name, food_cost=cost)
 
 
 @app.route("/foodbook_details", methods=["POST"])
