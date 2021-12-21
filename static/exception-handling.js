@@ -2,7 +2,7 @@ function validateForm() {
   let aadharno = document.forms["bookroom"]["cust_id"].value;
   let customer_name = document.forms["bookroom"]["cust_name"].value;
   let bookin_date = document.forms["bookroom"]["add_date"].value;
-  if (aadharno == "" || aadharno.length > 12) {
+  if (aadharno == "") {
     alert("enter valid aadhar number!");
     return false;
   } else if (aadharno.length != 12) {
