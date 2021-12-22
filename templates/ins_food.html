@@ -1,27 +1,21 @@
-{% extends "welcome.html" %}
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Food</title>
-  </head>
-  <body>
-    {% block content %}
-    <h1>Enter the food to be listed in menu</h1>
-    <form action="/ins_food" method="post">
-      <input type="number" placeholder="food_id" name="food_id" id="" />
-      <input type="text" placeholder="food_name" name="food_name" id="" />
-      <select name="food_time" id="">
-        <option value="breakfast">breakfast</option>
-        <option value="lunch">lunch</option>
-        <option value="dinner">dinner</option>
-      </select>
-      <input type="number" placeholder="cost" name="food_price" />
-      <input type="submit" value="insert" id="" />
-    </form>
-    {% endblock %}
-  </body>
-</html>
+<title>insert-food</title>
+{% extends "welcome.html" %} {% block content %}
+<script src="{{ url_for('static', filename='exception-handling.js')}}"</script></script>
+<h1>Enter the food to be listed in menu</h1>
+<form
+  name="insert-food"
+  action="/ins_food"
+  onsubmit="return insertfood()"
+  method="post"
+>
+  <input type="number" placeholder="food_id" name="food_id" id="" />
+  <input type="text" placeholder="food_name" name="food_name" id="" />
+  <select name="food_time" id="">
+    <option value="breakfast">breakfast</option>
+    <option value="lunch">lunch</option>
+    <option value="dinner">dinner</option>
+  </select>
+  <input type="number" placeholder="cost" name="food_price" />
+  <input type="submit" value="insert" id="" />
+</form>
+{% endblock %}

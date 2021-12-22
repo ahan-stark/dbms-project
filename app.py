@@ -90,7 +90,7 @@ def get_date():
     for (booked_room, cust_name) in cursor:
         room = {"num": booked_room, "cost": cust_name}
         dis.append(room)
-    return render_template("dis_room.html", disprooms=dis)
+    return render_template("book-rooms.html", disprooms=dis)
 
 
 @app.route("/takefood")
@@ -132,12 +132,12 @@ def book_food(name, cost):
 @app.route("/foodbook_details", methods=["POST"])
 def bookfood_details():
     food_name = request.form.get("food_name")
-    customer_name = request.form.get("customer_name")
+    customer_id = request.form.get("customer_id")
     food_price = request.form.get("food_price")
     quantity = request.form.get("quantity")
     total_amount = request.form.get("total_amount")
     query = "INSERT INTO food_book VALUES ('{}','{}',{},{},{})".format(
-        food_name, customer_name, food_price, quantity, total_amount)
+        food_name, customer_id, food_price, quantity, total_amount)
     cursor.execute(query)
     cnx.commit()
     return render_template("success.html")

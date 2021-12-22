@@ -38,3 +38,20 @@ function checkdate() {
     return false;
   }
 }
+function insertfood() {
+  let food_id = document.forms["insert-food"]["food_id"].value;
+  if (food_id == "") {
+    alert("enter food id");
+    return false;
+  }
+  let food_name = document.forms["insert-food"]["food_name"].value;
+  if (food_name == "") {
+    alert("enter food name");
+    return false;
+  }
+  let food_cost=document.forms["insert-food"]["food_price"].value;
+  if ( food_cost== "") {
+    alert("enter food cost");
+    return false;
+  }
+}
