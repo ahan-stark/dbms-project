@@ -7,3 +7,16 @@ btn.addEventListener("click", function (){
     total_cost.value=total;
 });
 
+
+
+
+
+
+
+let finalamt=document.getElementsByName("finalamt");
+let food_amt=document.getElementsByClassName('food-amt')
+let sum=0;
+for(let i=0;i<temp1.length;i++){
+sum=sum+parseInt(temp1[i].value);
+}
+
