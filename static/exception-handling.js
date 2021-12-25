@@ -49,9 +49,19 @@ function insertfood() {
     alert("enter food name");
     return false;
   }
-  let food_cost=document.forms["insert-food"]["food_price"].value;
-  if ( food_cost== "") {
+  let food_cost = document.forms["insert-food"]["food_price"].value;
+  if (food_cost == "") {
     alert("enter food cost");
+    return false;
+  }
+}
+function checkid() {
+  let aadharnumber = document.forms["aadhar-no"]["cust_id"].value;
+  if (aadharnumber == "") {
+    alert("enter valid aadhar number!");
+    return false;
+  } else if (aadharnumber.length != 12) {
+    alert("enter valid aadhar number!");
     return false;
   }
 }

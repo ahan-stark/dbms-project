@@ -9,7 +9,7 @@ END IF;
 END 
 // DELIMITER ;
 
-CALL cust_ins('953286088646','Mohammed Thavaf')
+CALL cust_ins('123456789123','Mohammed Thavaf')
 
 DELIMITER //
 create trigger cust_ins before insert on dbms.book
