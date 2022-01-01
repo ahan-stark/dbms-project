@@ -35,13 +35,13 @@ def dis_rooms():
     return render_template("dis_room.html", disprooms=rooms)
 
 
-@app.route("/book/<num>/<cost>", methods=["GET", "POST"])
-def book(num, cost):
+@app.route("/book/<num>/<cost>/<chosendate>", methods=["GET", "POST"])
+def book(num, cost, chosendate):
     # logic to insert booking details to booking table
     # query = "insert into book values({})".format(num)
     # cursor.execute(query)
     # cnx.commit()
-    return render_template("add_name.html", id=num, cost=cost)
+    return render_template("add_name.html", id=num, cost=cost, date=chosendate)
 
 
 @app.route("/add_name", methods=["POST"])
@@ -91,7 +91,7 @@ def get_date():
     for (booked_room, cust_name) in cursor:
         room = {"num": booked_room, "cost": cust_name}
         dis.append(room)
-    return render_template("book-rooms.html", disprooms=dis)
+    return render_template("book-rooms.html", disprooms=dis, chosendate=particulardate)
 
 
 @app.route("/takefood")
@@ -163,7 +163,13 @@ def cal_finalamt():
     query1 = "select booked_room,cust_name,booked_date,room_cost from book where cust_id ='{}'".format(
         cust_id)
     cursor.execute(query1)
-    for(booked_room,cust_name,booked_date,room_cost) in cursor:
-        b={"room_id":booked_room,"name":cust_name,"date":booked_date,"cost":room_cost}
+    for(booked_room, cust_name, booked_date, room_cost) in cursor:
+        b = {"room_id": booked_room, "name": cust_name,
+             "date": booked_date, "cost": room_cost}
         price_room.append(b)
-    return render_template("final-amount.html", totalbilling_food=price_food,totalbilling_room=price_room)
+    return render_template("final-amount.html", totalbilling_food=price_food, totalbilling_room=price_room)
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')

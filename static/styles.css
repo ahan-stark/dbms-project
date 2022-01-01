@@ -1,0 +1,139 @@
+body {
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+.logo {
+  border-radius: 50%;
+  max-width: 12em;
+  margin: 0 34em;
+  margin-top: 18px;
+  animation-name: disappear;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.navbar-adjust {
+  padding: 8px;
+  margin-top: 18px;
+  width: 51em;
+  margin-left: 15em;
+
+  
+}
+.navbar {
+  background-color: transparent !important;
+}
+#navbarcontent {
+  background-color: aqua;
+}
+.navbar-brand{
+  color: red !important;
+}
+.welcome-message {
+  text-align: center;
+  padding-top: 75px;
+  color: black;
+  font-size: 4.5em;
+}
+#videoBG {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.table-room {
+  height: 200px;
+  width: 48em;
+  margin-left: 17em;
+}
+table,
+td,
+th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  height: 70px;
+}
+.sort {
+  margin-top: 24em;
+  margin-left: 17em;
+  width: 32px;
+  height: 25px;
+}
+input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid red;
+  border-radius: 4px;
+  width: 40em;
+  text-align: center;
+  margin-left: 19em;
+}
+.custom-value {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid red;
+  width: 40em;
+  text-align: center;
+  margin-left: 19em;
+}
+.custom-value select {
+  background-color: white;
+  border: 1px;
+  font-size: 18px;
+}
+input[type="submit"] {
+  background-color: yellow;
+  width: 8em;
+  margin-left: 34em;
+}
+.enter-food {
+  background-color: white;
+  margin-left: 7.5em;
+}
+.food-menu {
+  text-align: center;
+  font-size: 3em;
+}
+.about{
+  text-indent: 50px;
+  font-size: 1.25em;
+  padding-right: 2em;
+  padding-left: 2em;
+}
+.creators{
+  font-stretch: condensed;
+}
+ul.creators li{
+  width: auto;
+  float: left;
+  margin-left: 3.4em;
+  font-size: 1.8em;
+  color: red;
+}
+.owner{
+  color: blue;
+  text-align: center;
+  font-size: 3em;
+}

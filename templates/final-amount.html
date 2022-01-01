@@ -2,8 +2,8 @@
 {% extends "welcome.html" %} {% block content %}
 <table class="table table-success table-striped">
     <tr>
-    <th>Food Name</th>
-    <th>Food Price</th>
+    <th class="table-dark">Food Name</th>
+    <th class="table-dark">Food Price</th>
     </tr>
     {% for food in totalbilling_food %}
     <tr>
@@ -14,10 +14,10 @@
 </table>
 <table class="table table-success table-striped">
     <tr>
-        <th>Room Id</th>
-        <th>Customer Name</th>
-        <th>Date</th>
-        <th>Cost</th>
+        <th class="table-dark">Room Id</th>
+        <th class="table-dark">Customer Name</th>
+        <th class="table-dark">Date</th>
+        <th class="table-dark">Cost</th>
         </tr>
         {% for room in totalbilling_room %}
         <tr>
@@ -30,7 +30,7 @@
 </table>
 <table class="table table-success table-striped">
     <tr>
-        <th>Final Amount</th>
+        <th class="table-dark">Final Amount</th>
     </tr>
     <tr>
         <td><input type="text" id="finalamt" readonly></td>
