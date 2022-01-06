@@ -23,9 +23,7 @@ body {
   padding: 8px;
   margin-top: 18px;
   width: 51em;
-  margin-left: 15em;
-
-  
+  margin-left: 12em;
 }
 .navbar {
   background-color: transparent !important;
@@ -33,14 +31,23 @@ body {
 #navbarcontent {
   background-color: aqua;
 }
-.navbar-brand{
-  color: red !important;
+.navbar-brand {
+  background-color: yellow;
+  color: black !important;
+  border-radius: 8px;
 }
 .welcome-message {
+  margin-top: 26px;
   text-align: center;
-  padding-top: 75px;
+  padding-top: 36px;
   color: black;
   font-size: 4.5em;
+  background-color: yellow;
+  height: 180px;
+  border: 1px solid black;
+  width: 10em;
+  margin-left: 4.1em;
+  border-radius: 41px;
 }
 #videoBG {
   width: 100vw;
@@ -109,31 +116,55 @@ input[type="submit"] {
   margin-left: 34em;
 }
 .enter-food {
-  background-color: white;
   margin-left: 7.5em;
+  text-align: center;
+  font-size: 3em;
+  color: darkviolet;
+  background-color: yellow;
+  width: 17em;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 15px;
 }
 .food-menu {
   text-align: center;
   font-size: 3em;
+  color: darkviolet;
+  background-color: yellow;
+  width: 9em;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 15px;
 }
-.about{
+
+.about {
   text-indent: 50px;
   font-size: 1.25em;
   padding-right: 2em;
   padding-left: 2em;
+  background: lightyellow;
+  width: 58em;
+  height: 13em;
+  margin: auto;
+  margin-top: 6px;
+  border-radius: 30px;
 }
-.creators{
+.creators {
   font-stretch: condensed;
 }
-ul.creators li{
+ul.creators li {
   width: auto;
   float: left;
   margin-left: 3.4em;
   font-size: 1.8em;
+  background: lightcyan;
   color: red;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
-.owner{
+.owner {
   color: blue;
   text-align: center;
   font-size: 3em;
+  margin-top: 15px;
 }
