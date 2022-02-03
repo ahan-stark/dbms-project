@@ -12,9 +12,9 @@
     {% block content %}
     <script src="{{ url_for('static', filename='exception-handling.js')}}"</script></script>
     <form name="insert_rooms" onsubmit="return validateinsrooms()" action="/rooms" method="post">
-      <input type="number" name="room_id" placeholder="room-id" />
-      <input type="number" name="cost_room" placeholder="rom-cost" />
-      <input type="submit" value="insert" id="" />
+      <input class="insert-input" type="number" name="room_id" placeholder="room-id" />
+      <input class="insert-input" type="number" name="cost_room" placeholder="rom-cost" />
+      <input class="insert-input" type="submit" value="insert" id="" />
     </form>
     {% endblock %}
   </body>

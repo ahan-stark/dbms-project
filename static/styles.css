@@ -27,7 +27,7 @@ body {
 }
 .navbar {
   background-color: transparent !important;
-}
+} 
 #navbarcontent {
   background-color: aqua;
 }
@@ -85,7 +85,7 @@ th {
   width: 32px;
   height: 25px;
 }
-input {
+.insert-input {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -167,4 +167,10 @@ ul.creators li {
   text-align: center;
   font-size: 3em;
   margin-top: 15px;
+}
+.success{
+  text-align: center;
+  margin-top: 1em;
+  font-size: 6em;
+  color: red;
 }

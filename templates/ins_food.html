@@ -8,8 +8,8 @@
   onsubmit="return insertfood()"
   method="post"
 >
-  <input type="number" placeholder="food_id" name="food_id" id="" />
-  <input type="text" placeholder="food_name" name="food_name" id="" />
+  <input class="insert-input"  type="number" placeholder="food_id" name="food_id" id="" />
+  <input class="insert-input"  type="text" placeholder="food_name" name="food_name" id="" />
   <div class="custom-value">
   <select name="food_time" id="">
     <option value="breakfast">breakfast</option>
@@ -17,7 +17,7 @@
     <option value="dinner">dinner</option>
   </select>
   </div>
-  <input type="number" placeholder="cost" name="food_price" />
-  <input type="submit" value="insert" id="" />
+  <input  class="insert-input" type="number" placeholder="cost" name="food_price" />
+  <input class="insert-input"  type="submit" value="insert" id="" />
 </form>
 {% endblock %}
